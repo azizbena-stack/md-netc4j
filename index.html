@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<title>La Churascaia · Club de Camargue depuis 1965</title>
+<meta name="theme-color" content="#140a09">
+<link rel="icon" href="logo.svg">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Yellowtail&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<!-- Site du club (démo non officielle), même DA que l'app : données réelles en haut du script (SOIREES, PASSEES, SHOP, FAQ). -->
+<style>
+:root{--bg:#140a09;--card:#1f1110;--card2:#2a1513;--line:#3d2421;--txt:#f7ece4;--mut:#b99f95;--a:#d3141f;--a-d:#a30d12;--a2:#f5c7a1;--bulb:#ffbf5e;
+  --fd:'Anton',Impact,sans-serif;--fs:'Yellowtail',cursive;--fb:'Poppins',system-ui,sans-serif;--glow:0 0 22px rgba(211,20,31,.6);--w:max(24px,calc(50vw - 580px))}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+html,body{background:var(--bg);color:var(--txt);font:400 17px/1.6 var(--fb)}
+body{overflow-x:hidden}
+a{color:inherit}img{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+.demo{position:relative;z-index:30;background:#ffd400;color:#000;text-align:center;font:700 12px var(--fb);letter-spacing:.06em;text-transform:uppercase;padding:6px 12px}
+
+/* Barre du haut */
+nav{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;padding:12px var(--w);background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.sign{background:var(--a-d);border-radius:8px;padding:6px 11px 5px;box-shadow:0 0 0 1px rgba(255,255,255,.08),0 0 16px rgba(211,20,31,.45);display:inline-flex}
+.sign img{height:20px;filter:brightness(0) invert(1)}
+nav .links{display:flex;gap:20px;margin-left:auto;font-size:14px;font-weight:500}
+nav .links a{text-decoration:none;color:var(--mut);transition:color .2s}nav .links a:hover{color:var(--txt)}
+#bar{position:fixed;top:0;left:0;height:3px;width:0;background:var(--a);box-shadow:var(--glow);z-index:31}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 26px;border-radius:999px;border:0;cursor:pointer;background:var(--a);color:#fff;font:18px var(--fd);text-transform:uppercase;letter-spacing:.06em;text-decoration:none;box-shadow:var(--glow);transition:transform .2s,box-shadow .2s;white-space:nowrap}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 34px rgba(211,20,31,.85)}
+.btn.ghost{background:transparent;border:1px solid var(--a2);color:var(--a2);box-shadow:none}
+.btn.sm{padding:9px 18px;font-size:15px}
+.mob{display:none}
+
+/* Sections */
+section{padding:100px var(--w);position:relative;overflow:hidden}
+section:nth-of-type(even){background:radial-gradient(700px 480px at 0% 100%,rgba(211,20,31,.12),rgba(211,20,31,0) 70%),var(--bg)}
+.k{font:600 13px var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--a2);margin-bottom:12px;display:flex;align-items:center;gap:12px}
+.k::before{content:"";width:22px;height:3px;background:var(--a);box-shadow:var(--glow)}
+h1{font:400 clamp(52px,8vw,96px)/1 var(--fd);text-transform:uppercase}
+h2{font:400 clamp(36px,5vw,56px)/1.05 var(--fd);text-transform:uppercase;margin-bottom:10px}
+.sc{font-family:var(--fs);text-transform:none;color:var(--a);font-size:1.15em;letter-spacing:0;text-shadow:var(--glow);display:inline-block;transform:translateY(.04em)}
+.neon{animation:flick 6s infinite}
+@keyframes flick{0%,18%,22%,62%,64%,100%{opacity:1}20%,63%{opacity:.45}}
+.lead{font-size:19px;color:var(--mut);max-width:680px}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;transition:border-color .25s,transform .25s}
+.card:hover{border-color:var(--a)}
+.rv{opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}
+
+/* Héro */
+.hero{min-height:calc(100vh - 90px);display:grid;grid-template-columns:1fr 260px;gap:40px;align-items:center;padding-top:110px;isolation:isolate}
+.hero>.bg{position:absolute;inset:0;z-index:-3;background:url(site-DSC09800.jpg) center 30%/cover;transform:scale(1.08);animation:zoom 18s ease-out forwards}
+@keyframes zoom{to{transform:scale(1)}}
+.hero::after{content:"";position:absolute;inset:0;z-index:-2;background:linear-gradient(90deg,rgba(20,10,9,.95) 0%,rgba(20,10,9,.72) 50%,rgba(90,6,10,.35) 100%),linear-gradient(0deg,var(--bg) 0%,transparent 35%)}
+.rays{position:absolute;right:5%;top:-25%;width:900px;height:900px;z-index:-1;border-radius:50%;opacity:.35;background:repeating-conic-gradient(rgba(255,191,94,.35) 0 4deg,transparent 4deg 18deg);mask:radial-gradient(circle,#000 10%,transparent 65%);-webkit-mask:radial-gradient(circle,#000 10%,transparent 65%);animation:rot 40s linear infinite}
+@keyframes rot{to{transform:rotate(360deg)}}
+.garland{position:absolute;top:0;left:0;right:0;height:70px;z-index:1;pointer-events:none}
+.garland svg{width:100%;height:100%}
+.garland i{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--bulb);box-shadow:0 0 14px 4px rgba(255,191,94,.7);animation:tw 2.4s ease-in-out infinite}
+@keyframes tw{50%{opacity:.35;box-shadow:0 0 4px 1px rgba(255,191,94,.4)}}
+.hero>div{min-width:0}
+.hero .logo{width:min(420px,100%);filter:drop-shadow(0 0 18px rgba(211,20,31,.9));margin-bottom:18px}
+.since{font:600 13px var(--fb);letter-spacing:.32em;text-transform:uppercase;color:var(--a2);margin-bottom:26px}
+.next{display:inline-block;background:rgba(31,17,16,.75);border:1px solid var(--line);border-radius:20px;padding:18px 22px;backdrop-filter:blur(6px)}
+.next .t{font:600 12px var(--fb);letter-spacing:.24em;text-transform:uppercase;color:var(--mut)}
+.next .n{font:400 34px/1.1 var(--fs);color:#fff;margin:4px 0 2px}
+.next .d{font:18px var(--fd);letter-spacing:.06em;text-transform:uppercase;color:var(--a2)}
+.cd{display:flex;gap:10px;margin-top:14px}
+.cd div{min-width:66px;text-align:center;background:var(--card2);border:1px solid var(--line);border-radius:12px;padding:8px 6px}
+.cd b{display:block;font:400 30px/1 var(--fd)}
+.cd span{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+.cta{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+.ballbox{position:relative;height:420px}
+.ball{--z:150px;width:var(--z);height:var(--z);border-radius:50%;position:absolute;left:50%;top:140px;margin-left:calc(var(--z)/-2);
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.95),rgba(255,255,255,0) 28%),
+    repeating-linear-gradient(0deg,rgba(0,0,0,.45) 0 1px,transparent 1px calc(var(--z)/12)),
+    repeating-linear-gradient(90deg,rgba(0,0,0,.45) 0 1px,transparent 1px calc(var(--z)/12)),
+    conic-gradient(#e9e9ee,#8d8d95,#f7f7fb,#6f6f78,#dcdce4,#9a9aa3,#f3f3f7,#7d7d86,#e9e9ee);
+  box-shadow:inset -10px -12px 24px rgba(0,0,0,.55),0 0 60px rgba(255,191,94,.5);animation:spin 6s linear infinite,drop 1.4s cubic-bezier(.2,1.4,.4,1)}
+.ball::before{content:"";position:absolute;left:50%;bottom:100%;width:2px;height:600px;background:linear-gradient(transparent,#bbb);transform:translateX(-50%)}
+@keyframes spin{to{background-position:0 0,0 0,calc(var(--z)/12) 0,0 0}}
+@keyframes drop{from{transform:translateY(-600px)}}
+.spots{position:absolute;left:50%;top:215px;width:0;height:0}
+.spots i{position:absolute;width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 10px 3px rgba(255,255,255,.7);animation:fly 3s linear infinite;opacity:0}
+@keyframes fly{0%{opacity:0;transform:rotate(var(--r)) translateX(80px)}20%{opacity:1}100%{opacity:0;transform:rotate(calc(var(--r) + 40deg)) translateX(260px)}}
+
+/* Soirées */
+.events{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;margin-top:34px}
+.ev{overflow:hidden;display:flex;flex-direction:column}
+.ev:hover{transform:translateY(-6px);box-shadow:0 0 40px rgba(211,20,31,.3)}
+.ev .poster{aspect-ratio:4/5;background:#000;overflow:hidden;position:relative}
+.ev .poster img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.ev:hover .poster img{transform:scale(1.05)}
+.ev .date{position:absolute;left:14px;top:14px;background:var(--a);color:#fff;border-radius:12px;padding:6px 12px;text-align:center;font:400 14px/1.1 var(--fd);text-transform:uppercase;box-shadow:var(--glow)}
+.ev .date b{display:block;font-size:30px;font-weight:400}
+.ev .body{padding:20px 22px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.ev h3{font:400 30px/1.1 var(--fs);color:#fff}
+.ev .meta{font-size:14px;color:var(--mut)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--line);border-radius:999px;padding:3px 9px;color:var(--a2)}
+.ev .row{display:flex;gap:10px;margin-top:auto;padding-top:8px}
+.ev .row .btn{flex:1;padding:11px 14px;font-size:15px}
+.past{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:26px}
+.past a{position:relative;border-radius:16px;overflow:hidden;aspect-ratio:4/3;text-decoration:none}
+.past img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.past a:hover img{transform:scale(1.06)}
+.past span{position:absolute;inset:auto 0 0 0;padding:40px 16px 14px;background:linear-gradient(transparent,rgba(0,0,0,.85));font-size:13px;color:#ddd}
+.past b{display:block;font:400 20px var(--fd);text-transform:uppercase;color:#fff}
+
+/* Instagram en direct */
+.ighead{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap}
+.live{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--mut);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.live i{width:9px;height:9px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px #2ecc71;animation:tw 1.6s infinite}
+.live.demo i{background:var(--bulb);box-shadow:0 0 10px var(--bulb)}
+.stories{display:flex;gap:16px;overflow-x:auto;padding:22px 2px 6px;scrollbar-width:none}
+.stories button{flex:none;width:84px;border:0;background:none;cursor:pointer;text-align:center;font-size:12px;color:var(--mut)}
+.stories .ring{width:78px;height:78px;margin:0 auto 6px;border-radius:50%;padding:3px;background:conic-gradient(var(--a),var(--bulb),var(--a));animation:rot 6s linear infinite}
+.stories .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:3px solid var(--bg);animation:rot 6s linear infinite reverse}
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:20px}
+.posts a{position:relative;aspect-ratio:1;overflow:hidden;border-radius:10px;background:#000}
+.posts img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.posts a:hover img{transform:scale(1.06)}
+.posts span{position:absolute;inset:auto 0 0;padding:30px 10px 8px;background:linear-gradient(transparent,rgba(0,0,0,.8));font-size:12px;opacity:0;transition:opacity .3s}
+.posts a:hover span{opacity:1}
+.posts .vid{position:absolute;top:8px;right:10px;font-size:14px}
+.posts .new{position:absolute;top:8px;left:8px;background:var(--a);color:#fff;font:600 10px var(--fb);letter-spacing:.08em;border-radius:99px;padding:3px 8px;box-shadow:var(--glow)}
+#sv{position:fixed;inset:0;z-index:60;background:#000;display:none;align-items:center;justify-content:center}
+#sv.on{display:flex}
+#sv .bar{position:absolute;top:14px;left:14px;right:14px;height:3px;background:rgba(255,255,255,.25);border-radius:3px;overflow:hidden}
+#sv .bar i{display:block;height:100%;width:0;background:#fff}
+#sv.on .bar i{animation:prog 5s linear forwards}
+@keyframes prog{to{width:100%}}
+#sv img,#sv video{max-height:100vh;max-width:100vw;object-fit:contain}
+#sv .who{position:absolute;top:28px;left:16px;display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600}
+#sv .who img{width:34px;height:34px;border-radius:50%}
+#sv .x{position:absolute;top:26px;right:16px;font-size:24px;background:none;border:0;cursor:pointer}
+
+/* Histoire */
+.story{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.story .pic{border-radius:22px;overflow:hidden;aspect-ratio:4/5;box-shadow:0 0 60px rgba(211,20,31,.25)}
+.story .pic img{width:100%;height:100%;object-fit:cover}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:26px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.stats b{display:block;font:400 44px/1 var(--fd);color:var(--a);text-shadow:var(--glow)}
+.stats span{font-size:14px;color:var(--mut)}
+.marquee{margin:56px calc(-1 * var(--w)) 0;overflow:hidden;border-block:1px solid var(--line);padding:14px 0;white-space:nowrap}
+.marquee .t{font:600 12px var(--fb);letter-spacing:.3em;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:8px}
+.marquee div.m{display:inline-block;animation:mq 45s linear infinite;font:26px var(--fd);text-transform:uppercase;letter-spacing:.06em}
+.marquee em{font-style:normal;color:var(--a);margin:0 20px}
+@keyframes mq{to{transform:translateX(-50%)}}
+
+/* Le lieu */
+.gal{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:200px;gap:10px;margin-top:30px}
+.gal button{border:0;padding:0;border-radius:14px;overflow:hidden;cursor:zoom-in;background:#000}
+.gal button:nth-child(1){grid-column:span 2;grid-row:span 2}
+.gal button:nth-child(6){grid-column:span 2}
+.gal img{width:100%;height:100%;object-fit:cover;transition:transform .6s,filter .3s;filter:saturate(1.05)}
+.gal button:hover img{transform:scale(1.06);filter:saturate(1.3)}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(10,4,4,.94);display:none;align-items:center;justify-content:center;padding:20px}
+#lb.on{display:flex}
+#lb img{max-height:88vh;max-width:92vw;border-radius:12px;box-shadow:0 0 60px rgba(211,20,31,.35)}
+#lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line);border-radius:50%;width:48px;height:48px;font-size:22px;cursor:pointer}
+#lb .x{top:18px;right:18px}#lb .p{left:18px}#lb .n{right:18px}
+
+/* Tables / privatisation */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+form.card{padding:26px;display:grid;gap:12px}
+form.card:hover{border-color:var(--line)}
+label{font-size:13px;color:var(--mut);display:grid;gap:5px}
+input,select,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:var(--card2)}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--a);outline-offset:1px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ok{display:none;border:1px solid var(--a2);border-radius:14px;padding:14px;color:var(--a2);font-size:15px}
+.ok.on{display:block;animation:pop .4s}
+@keyframes pop{from{transform:scale(.95);opacity:0}}
+.feats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+.feats div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px;text-align:center}
+.feats b{display:block;font:400 34px/1 var(--fd);color:var(--a);text-shadow:var(--glow)}
+.feats span{font-size:13px;color:var(--mut)}
+ul.li{list-style:none;margin-top:16px}
+ul.li li{padding-left:34px;position:relative;margin-bottom:10px}
+ul.li li::before{content:"";position:absolute;left:0;top:5px;width:20px;height:20px;border-radius:50%;border:2px solid var(--a);background:radial-gradient(circle,var(--a) 0 4px,transparent 5px)}
+.ph{border-radius:22px;overflow:hidden;aspect-ratio:16/10;margin-top:6px}
+.ph img{width:100%;height:100%;object-fit:cover}
+
+/* Boutique */
+.shop{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.it{overflow:hidden;text-decoration:none}
+.it:hover{transform:translateY(-6px)}
+.it .im{aspect-ratio:1;overflow:hidden;background:#000}
+.it img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.it:hover img{transform:scale(1.06)}
+.it div.b{padding:14px 16px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.it .p{font:400 22px var(--fd);color:var(--a2);white-space:nowrap}
+.it s{font-size:14px;color:var(--mut);margin-right:6px}
+
+/* App */
+.app{display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center}
+.phone{width:250px;aspect-ratio:480/1040;border-radius:34px;border:7px solid #2b1a18;overflow:hidden;box-shadow:0 0 60px rgba(211,20,31,.35);animation:float 5s ease-in-out infinite}
+.phone img{width:100%;height:100%;object-fit:cover;object-position:top}
+@keyframes float{50%{transform:translateY(-12px)}}
+.try{display:flex;gap:18px;align-items:center;margin-top:24px}
+.qr{width:104px;height:104px;background:#fff;border-radius:12px;padding:7px;flex:none}
+.qr svg{width:100%;height:100%;display:block}
+
+/* Infos */
+.infos{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:30px}
+.info{padding:24px 26px}
+.info .row{display:flex;justify-content:space-between;gap:14px;padding:12px 0;border-bottom:1px solid var(--line)}
+.info .row:last-of-type{border:0}
+.info .row span:last-child{color:var(--mut);text-align:right}
+.map{border-radius:18px;overflow:hidden;border:1px solid var(--line);min-height:300px}
+.map iframe{width:100%;height:100%;min-height:300px;border:0;filter:invert(.9) hue-rotate(180deg) saturate(.6)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-top:10px}
+details[open]{border-color:var(--a-d)}
+summary{cursor:pointer;font:400 19px var(--fd);text-transform:uppercase;letter-spacing:.03em;list-style:none;display:flex;justify-content:space-between}
+summary::after{content:"+";color:var(--a);transition:transform .3s}
+details[open] summary::after{transform:rotate(45deg)}
+details p{color:var(--mut);margin-top:8px;font-size:15px}
+
+footer{padding:60px var(--w) 110px;border-top:1px solid var(--line);text-align:center}
+footer .sign{margin-bottom:18px}footer .sign img{height:28px}
+.soc{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:16px 0}
+.soc a{border:1px solid var(--line);border-radius:999px;padding:8px 16px;font-size:14px;text-decoration:none;transition:border-color .2s}
+.soc a:hover{border-color:var(--a)}
+footer p{font-size:13px;color:var(--mut)}
+
+@media (max-width:900px){
+  nav{padding:10px 16px}nav .links{display:none}nav .btn{margin-left:auto}
+  section{padding:70px 16px}
+  .hero{grid-template-columns:1fr;padding-top:90px;min-height:auto}
+  .ballbox{display:none}
+  .cd div{min-width:0;flex:1}
+  .story,.two,.app,.infos{grid-template-columns:1fr;gap:28px}
+  .story .pic{aspect-ratio:16/11}
+  .past{grid-template-columns:1fr}
+  .gal{grid-template-columns:1fr 1fr;grid-auto-rows:140px}
+  .shop{grid-template-columns:1fr 1fr;gap:12px}.it div.b{flex-direction:column;align-items:flex-start;padding:10px 12px;font-size:14px}
+  .feats b{font-size:22px;white-space:nowrap}.feats div{padding:14px 6px}
+  .grid2{grid-template-columns:1fr}
+  .app .phone{margin:0 auto;width:220px}
+  .marquee{margin-inline:-16px}
+  .mob{display:flex;position:fixed;left:12px;right:12px;bottom:12px;z-index:25;gap:10px;transform:translateY(150%);transition:transform .4s}
+  .mob.on{transform:none}.mob .btn{flex:1;padding:13px 10px;font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div id="bar"></div>
+<div class="demo">Démo · maquette non officielle · site réel : lachurascaia.fr</div>
+<nav>
+  <a class="sign" href="#top"><img src="logo-rouge.png" alt="La Churascaia"></a>
+  <div class="links"><a href="#soirees">Soirées</a><a href="#insta">Instagram</a><a href="#club">Le club</a><a href="#lieu">Le lieu</a><a href="#tables">Tables VIP</a><a href="#privatiser">Privatiser</a><a href="#boutique">Boutique</a><a href="#infos">Infos</a></div>
+  <a class="btn sm" id="navTicket" href="https://shotgun.live/fr/venues/la-churascaia" target="_blank" rel="noopener">Billets</a>
+</nav>
+
+<!-- Héro -->
+<section class="hero" id="top">
+  <div class="bg"></div><div class="rays"></div><div class="garland" id="garland"></div>
+  <div>
+    <img class="logo rv" src="logo-rouge.png" alt="La Churascaia">
+    <div class="since rv d1">Club de Camargue depuis 1965 · Vauvert</div>
+    <div class="next rv d2" id="next"></div>
+    <div class="cta rv d3"><a class="btn" id="heroTicket" target="_blank" rel="noopener" href="https://shotgun.live/fr/venues/la-churascaia">🎟 Prendre mon billet</a><a class="btn ghost" href="#tables">Réserver une table</a></div>
+  </div>
+  <div class="ballbox"><div class="ball"></div><div class="spots" id="spots"></div></div>
+</section>
+
+<!-- Soirées -->
+<section id="soirees">
+  <div class="k rv">Le programme</div>
+  <h2 class="rv">Les prochaines <span class="sc">soirées</span></h2>
+  <p class="lead rv">Billets sur Shotgun : garde le QR dans ton téléphone, il est scanné à l'entrée.</p>
+  <div class="events" id="events"></div>
+  <h3 class="k rv" style="margin-top:56px">Les dernières nuits</h3>
+  <div class="past" id="past"></div>
+</section>
+
+<!-- Instagram en direct -->
+<section id="insta">
+  <div class="ighead">
+    <div>
+      <div class="k rv">@lachurascaia</div>
+      <h2 class="rv">En direct <span class="sc">d'Instagram</span></h2>
+      <p class="lead rv">Chaque story et chaque post du club arrive ici tout seul, sans rien refaire.</p>
+    </div>
+    <div class="live rv" id="igState"><i></i><span></span></div>
+  </div>
+  <div class="stories rv" id="igStories"></div>
+  <div class="posts" id="igPosts"></div>
+  <div class="rv" style="margin-top:22px"><a class="btn ghost" href="https://www.instagram.com/lachurascaia/" target="_blank" rel="noopener">Suivre @lachurascaia</a></div>
+</section>
+<div id="sv" role="dialog" aria-label="Story"><div class="bar"><i></i></div><div class="who"><img src="logo.svg" alt="">lachurascaia <span class="mut" id="svT"></span></div><button class="x" aria-label="Fermer">✕</button><div id="svM"></div></div>
+
+<!-- Le club -->
+<section id="club">
+  <div class="story">
+    <div class="pic rv"><img src="site-DSC09616.jpg" alt="La salle de la Churascaia"></div>
+    <div>
+      <div class="k rv">Depuis 1965</div>
+      <h2 class="rv">Une <span class="sc neon">légende</span> de Camargue</h2>
+      <p class="lead rv">Fondée en 1965 par le manadier Jean Lafont, à Vauvert, à 10 minutes d'Aigues-Mortes. Un patio au milieu des pins l'été, une salle aux affiches emblématiques l'hiver, et toutes les générations sous la même boule à facettes.</p>
+      <div class="stats">
+        <div class="rv"><b data-n="61" data-s="e">61e</b><span>saison, ouverte le 3 octobre</span></div>
+        <div class="rv d1"><b data-n="550" data-s=" m²">550 m²</b><span>de club, 3 bars intérieurs</span></div>
+        <div class="rv d2"><b data-n="400" data-s=" m²">400 m²</b><span>de patio et 3 bars l'été</span></div>
+        <div class="rv d3"><b data-n="25.8" data-s=" k">25,8 k</b><span>abonnés sur Instagram</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="marquee"><div class="t">Ils sont passés à la Chu</div><div class="m" id="mq"></div></div>
+</section>
+
+<!-- Le lieu -->
+<section id="lieu">
+  <div class="k rv">Le lieu</div>
+  <h2 class="rv">Sous la boule, <span class="sc">toutes les générations</span></h2>
+  <div class="gal" id="gal"></div>
+</section>
+<div id="lb" role="dialog" aria-label="Photo en grand"><img id="lbImg" alt=""><button class="x" aria-label="Fermer">✕</button><button class="p" aria-label="Précédente">‹</button><button class="n" aria-label="Suivante">›</button></div>
+
+<!-- Tables VIP -->
+<section id="tables">
+  <div class="two">
+    <div>
+      <div class="k rv">Tables VIP</div>
+      <h2 class="rv">Ta table, <span class="sc">ta soirée</span></h2>
+      <p class="lead rv">Anniversaire, enterrement de vie, retrouvailles : réserve ta table à l'avance et arrive sans attendre.</p>
+      <ul class="li rv">
+        <li>Choisis la soirée et le nombre de personnes</li>
+        <li>Le club te rappelle pour confirmer</li>
+        <li>Une question ? <a href="tel:+33674940109"><b style="color:var(--a2)">06 74 94 01 09</b></a></li>
+      </ul>
+      <div class="ph rv"><img src="site-DSC04782.jpg" alt=""></div>
+    </div>
+    <form class="card rv" id="fTable">
+      <label>Soirée<select id="tSoiree" required></select></label>
+      <div class="grid2"><label>Prénom<input required autocomplete="given-name"></label><label>Téléphone<input type="tel" required autocomplete="tel"></label></div>
+      <label>Nombre de personnes<input type="number" min="2" max="30" value="6" required></label>
+      <label>Un mot pour le club (facultatif)<textarea rows="3" placeholder="C'est un anniversaire ?"></textarea></label>
+      <button class="btn" type="submit">Envoyer ma demande</button>
+      <div class="ok" role="status">✓ Demande prête ! Démo : rien n'est envoyé. Sur le vrai site, elle arrive directement au club.</div>
+    </form>
+  </div>
+</section>
+
+<!-- Privatiser -->
+<section id="privatiser">
+  <div class="two">
+    <form class="card rv" id="fPriv">
+      <div class="grid2"><label>Nom<input required autocomplete="name"></label><label>Téléphone<input type="tel" required autocomplete="tel"></label></div>
+      <div class="grid2"><label>Type d'événement<select><option>Anniversaire</option><option>Mariage</option><option>Séminaire / entreprise</option><option>Autre</option></select></label><label>Date souhaitée<input type="date" required></label></div>
+      <label>Nombre d'invités<input type="number" min="20" max="1000" value="80" required></label>
+      <label>Votre projet<textarea rows="3" placeholder="Patio ou salle, horaires, DJ…"></textarea></label>
+      <button class="btn" type="submit">Demander un devis</button>
+      <div class="ok" role="status">✓ Demande prête ! Démo : rien n'est envoyé. Sur le vrai site, le club vous recontacte avec un devis.</div>
+    </form>
+    <div>
+      <div class="k rv">Privatisation</div>
+      <h2 class="rv">Privatisez <span class="sc">la Chu</span></h2>
+      <p class="lead rv">Un lieu unique pour votre soirée : anniversaire, séminaire, mariage. Un lieu authentique, avec son patio au milieu des pins méditerranéens.</p>
+      <div class="feats">
+        <div class="rv"><b>550 m²</b><span>de bâtiment</span></div>
+        <div class="rv d1"><b>400 m²</b><span>de patio</span></div>
+        <div class="rv d2"><b>6</b><span>bars</span></div>
+      </div>
+      <div class="ph rv"><img src="14.jpg" alt="Le patio"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Boutique -->
+<section id="boutique">
+  <div class="k rv">La boutique</div>
+  <h2 class="rv">Porte <span class="sc">la Chu</span></h2>
+  <p class="lead rv">T-shirts, casquettes et bobs du club. À commander en ligne.</p>
+  <div class="shop" id="shop"></div>
+  <div class="rv" style="margin-top:26px"><a class="btn ghost" href="https://www.lachurascaia.fr/boutique/" target="_blank" rel="noopener">Toute la boutique</a></div>
+</section>
+
+<!-- App -->
+<section id="app">
+  <div class="app">
+    <div class="phone rv"><img src="cap-home.jpg" alt="L'app de la Churascaia"></div>
+    <div>
+      <div class="k rv">Nouveau</div>
+      <h2 class="rv">La Chu dans <span class="sc">ta poche</span></h2>
+      <p class="lead rv">Les soirées, tes billets, les stories du club en direct, ta carte de fidélité et tes tables : tout dans l'app, gratuite et sans store.</p>
+      <div class="try rv"><div class="qr" id="qr"></div><div><p class="mut" style="font-size:15px">Scanne avec ton téléphone, puis « Ajouter à l'écran d'accueil ».</p><a class="btn sm" style="margin-top:10px" href="https://azizbena-stack.github.io/md-jhu8lsga1qhxvxiq/" target="_blank" rel="noopener">Ouvrir l'app</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Infos -->
+<section id="infos">
+  <div class="k rv">Infos pratiques</div>
+  <h2 class="rv">Venir à <span class="sc">la Chu</span></h2>
+  <div class="infos">
+    <div>
+      <div class="card info rv">
+        <div class="row"><span>📍 Adresse</span><span>Sainte-Anne, 30600 Vauvert</span></div>
+        <div class="row"><span>🕚 Horaires</span><span>Les soirs de fête, 23 h → 5 h</span></div>
+        <div class="row"><span>📞 Réservations</span><span><a href="tel:+33674940109">06 74 94 01 09</a></span></div>
+        <div class="row"><span>🪪 Entrée</span><span>Majeurs, pièce d'identité physique</span></div>
+        <div class="cta" style="margin-top:14px"><a class="btn sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=La%20Churascaia%20Vauvert">Itinéraire</a><a class="btn sm ghost" href="tel:+33674940109">Appeler</a></div>
+      </div>
+      <div id="faq"></div>
+    </div>
+    <div class="map rv"><iframe loading="lazy" title="Plan d'accès" src="https://www.google.com/maps?q=La%20Churascaia%20Vauvert&output=embed"></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <a class="sign" href="#top"><img src="logo-rouge.png" alt="La Churascaia"></a>
+  <p>Club de Camargue depuis 1965 · Sainte-Anne, 30600 Vauvert</p>
+  <div class="soc"><a href="https://www.instagram.com/lachurascaia/" target="_blank" rel="noopener">Instagram</a><a href="https://shotgun.live/fr/venues/la-churascaia" target="_blank" rel="noopener">Shotgun</a><a href="https://www.lachurascaia.fr/" target="_blank" rel="noopener">lachurascaia.fr</a></div>
+  <p>Démo · maquette non officielle, réalisée par Aziz Bena · L'abus d'alcool est dangereux pour la santé.</p>
+</footer>
+
+<div class="mob" id="mob"><a class="btn" id="mobTicket" href="https://shotgun.live/fr/venues/la-churascaia" target="_blank" rel="noopener">Billets</a><a class="btn ghost" href="#tables" style="background:var(--bg)">Table</a></div>
+
+<script>
+// ===== Données réelles (Instagram @lachurascaia, Shotgun, lachurascaia.fr, relevées le 15/10/2026, comme l'app) =====
+const SG = s => 'https://shotgun.live/fr/events/' + s, SHOTGUN = 'https://shotgun.live/fr/venues/la-churascaia';
+const SOIREES = [
+  {nom: 'Les Enfants de la Roubine', date: '2026-10-17T23:00', fin: '05:00', prix: '12,99 €', genres: ['Disco', 'Pop', 'House'], lineup: ['JeanChris BuBu', 'Capi Music'], url: SG('les-enfants-de-la-roubine-17-10-26-la-churascaia'), img: '1', desc: 'La soirée multigénérationnelle'},
+  {nom: 'Halloween Disco Inferno', date: '2026-10-31T23:00', fin: '05:00', prix: '10,99 €', genres: ['Disco', 'House'], lineup: ['Greg Herma', 'Capi Music', 'Thôm', 'Alex Vidal'], url: SG('halloween-disco-inferno-31-10-26-la-churascaia'), img: '2', desc: 'Boules à facettes, paillettes et lumières rouges'},
+  {nom: 'Disconnect × Sidney Charles', date: '2026-11-10T22:00', fin: '05:00', prix: '13,99 €', genres: ['Deep tech', 'Tech house'], lineup: ['Sidney Charles', 'Martino & Berth', 'Tibo KSRG', 'South Connection'], url: SG('disconnect-la-churascaia-10-11-26'), img: '3', desc: 'Disconnect s\'invite à la Chu'},
+];
+const PASSEES = [
+  {nom: 'Opening · 61e saison', date: '2026-10-03T23:00', lineup: ['Deron', 'Capi Music', 'Greg Herma'], img: '4'},
+  {nom: 'Tony Romera · Closing du Patio', date: '2026-09-05T23:00', lineup: ['Tony Romera', 'Soubeiran', 'Capi Music', 'Vigouroux'], img: '12'},
+  {nom: 'La Blanche · Le Patio', date: '2026-08-22T23:00', lineup: ['Cebb', 'Capi Music', 'Benji Ben DJ', 'Benedetto & Farina'], img: '14'},
+];
+const LEGENDES = ['Cerrone', 'Bob Sinclar', 'Martin Solveig', 'Richie Hawtin', 'Les Rita Mitsouko', 'Les Négresses Vertes', 'Worakls', 'Mestiza', 'Noze', 'Sébastien Léger', 'Mont Rouge', 'Yann Muller', 'Grossomoddo', 'Aaron Sevilla', 'Moojo', 'Arkadyan'];
+const SALLE = ['site-DSC08461', 'site-DSC09015', '15', 'site-DSC05560', 'site-DSC05099', 'site-DSC00015', '9', 'site-DSC05590', 'site-DSC04863', '10'];
+const SHOP = [['T-shirt « Les Enfants de la Roubine »', '35 €', '', 'roubine'], ['T-shirt 60 ans', '30 €', '45 €', '60ans'], ['Casquette Mi Casa', '30 €', '', 'micasa'],
+  ['T-shirt Trouble', '35 €', '', 'trouble'], ['T-shirt Cœur rouge', '30 €', '', 'coeur'], ['Bob Chu', '21 €', '30 €', 'bob']];
+const FAQ = [
+  ['Âge minimum', 'Établissement réservé aux personnes majeures. Contrôle avec une pièce d\'identité valide, physique : pas de photo sur le téléphone.'],
+  ['Billets', 'Les billets sont sur Shotgun : garde le QR dans ton téléphone, il est scanné à l\'entrée.'],
+  ['L\'été, le Patio', 'Aux beaux jours, la fête se passe dehors, dans le patio au milieu des pins. Depuis le 3 octobre, retour à l\'intérieur.'],
+  ['Privatiser la Chu', 'Anniversaire, séminaire, mariage : demande un devis ci-dessus ou appelle le 06 74 94 01 09.'],
+];
+
+const $ = id => document.getElementById(id);
+const esc = s => s.replace(/[&<>"]/g, c => ({'&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;'}[c]));
+const D = s => new Date(s), jour = d => d.toLocaleDateString('fr-FR', {weekday: 'short', day: 'numeric', month: 'short'});
+const now = new Date(), A_VENIR = SOIREES.filter(s => D(s.date) > now), NEXT = A_VENIR[0];
+
+// Prochaine soirée + compte à rebours
+if (NEXT) {
+  $('next').innerHTML = `<div class="t">Prochaine soirée</div><div class="n">${esc(NEXT.nom)}</div><div class="d">${D(NEXT.date).toLocaleDateString('fr-FR', {weekday: 'long', day: 'numeric', month: 'long'})} · 23 h → ${NEXT.fin}</div><div class="cd" id="cd"></div>`;
+  ['heroTicket', 'navTicket', 'mobTicket'].forEach(id => $(id).href = NEXT.url);
+  const tick = () => { let s = Math.max(0, (D(NEXT.date) - new Date()) / 1000 | 0);
+    $('cd').innerHTML = [[s / 86400 | 0, 'jours'], [s % 86400 / 3600 | 0, 'heures'], [s % 3600 / 60 | 0, 'min'], [s % 60, 'sec']].map(([v, l]) => `<div><b>${String(v).padStart(2, '0')}</b><span>${l}</span></div>`).join(''); };
+  tick(); setInterval(tick, 1000);
+} else $('next').innerHTML = '<div class="t">Prochaines dates</div><div class="n">Bientôt sur Instagram</div>';
+
+// Ajout à l'agenda (.ics)
+function ics(i) {
+  const s = A_VENIR[i], d = D(s.date), f = new Date(d); f.setHours(+s.fin.slice(0, 2), 0); if (f < d) f.setDate(f.getDate() + 1);
+  const z = x => x.toISOString().replace(/[-:]/g, '').slice(0, 15) + 'Z';
+  const txt = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//La Churascaia//FR', 'BEGIN:VEVENT', 'UID:' + d.getTime() + '@lachurascaia', 'DTSTAMP:' + z(new Date()), 'DTSTART:' + z(d), 'DTEND:' + z(f),
+    'SUMMARY:' + s.nom + ' · La Churascaia', 'LOCATION:La Churascaia\\, Sainte-Anne\\, 30600 Vauvert', 'URL:' + s.url, 'END:VEVENT', 'END:VCALENDAR'].join('\r\n');
+  const a = document.createElement('a'); a.href = URL.createObjectURL(new Blob([txt], {type: 'text/calendar'})); a.download = 'churascaia.ics'; a.click();
+}
+
+$('events').innerHTML = A_VENIR.map((s, i) => `<article class="card ev rv${i ? ' d' + Math.min(i, 3) : ''}">
+  <div class="poster"><img src="${s.img}.jpg" alt="Affiche ${esc(s.nom)}"><div class="date"><b>${D(s.date).getDate()}</b>${D(s.date).toLocaleDateString('fr-FR', {month: 'short'})}</div></div>
+  <div class="body"><h3>${esc(s.nom)}</h3><div class="meta">${jour(D(s.date))} · ${D(s.date).getHours()} h → ${s.fin.replace(':00', ' h')} · dès ${s.prix}</div>
+  <div class="tags">${s.genres.map(g => `<span class="tag">${g}</span>`).join('')}</div>
+  <div class="meta">${s.lineup.map(esc).join(' · ')}</div>
+  <div class="row"><a class="btn" href="${s.url}" target="_blank" rel="noopener">Billets</a><button class="btn ghost" onclick="ics(${i})">+ Agenda</button></div></div></article>`).join('')
+  || '<p class="lead">Les prochaines dates arrivent bientôt sur Instagram.</p>';
+$('past').innerHTML = [...SOIREES.filter(s => D(s.date) <= now), ...PASSEES].slice(0, 3).map(s => `<a class="rv" href="https://www.instagram.com/lachurascaia/" target="_blank" rel="noopener"><img loading="lazy" src="${s.img}.jpg" alt=""><span><b>${esc(s.nom)}</b>${jour(D(s.date))} · ${s.lineup.slice(0, 3).map(esc).join(' · ')}</span></a>`).join('');
+$('tSoiree').innerHTML = A_VENIR.map(s => `<option>${jour(D(s.date))} · ${esc(s.nom)}</option>`).join('') + '<option>Une autre date</option>';
+
+// Ils sont passés à la Chu
+const mq = LEGENDES.map(n => esc(n) + '<em>✦</em>').join('');
+$('mq').innerHTML = mq + mq;
+
+// Galerie + visionneuse
+$('gal').innerHTML = SALLE.map((f, i) => `<button class="rv" data-i="${i}" aria-label="Voir la photo en grand"><img loading="lazy" src="${f}.jpg" alt=""></button>`).join('');
+let cur = 0;
+const show = i => { cur = (i + SALLE.length) % SALLE.length; $('lbImg').src = `${SALLE[cur]}.jpg`; $('lb').classList.add('on'); };
+$('gal').addEventListener('click', e => { const b = e.target.closest('button'); if (b) show(+b.dataset.i); });
+$('lb').addEventListener('click', e => { if (e.target.matches('.p')) show(cur - 1); else if (e.target.matches('.n')) show(cur + 1); else if (e.target.id !== 'lbImg') $('lb').classList.remove('on'); });
+addEventListener('keydown', e => { if (!$('lb').classList.contains('on')) return;
+  if (e.key === 'Escape') $('lb').classList.remove('on'); if (e.key === 'ArrowLeft') show(cur - 1); if (e.key === 'ArrowRight') show(cur + 1); });
+
+// Boutique (vrais articles et prix de lachurascaia.fr)
+$('shop').innerHTML = SHOP.map(([n, p, old, img], i) => `<a class="card it rv d${i % 3}" href="https://www.lachurascaia.fr/boutique/" target="_blank" rel="noopener"><div class="im"><img loading="lazy" src="shop-${img}.jpg" alt="${esc(n)}"></div><div class="b"><span>${esc(n)}</span><span class="p">${old ? `<s>${old}</s>` : ''}${p}</span></div></a>`).join('');
+
+// ===== Instagram en direct =====
+// Version officielle : sync-stories.py écrit posts.json et stories.json depuis l'API Instagram (compte pro du club) toutes les 2 min,
+// et le site les relit chaque minute. Démo (fichiers absents) : les 16 derniers posts réels relevés le 15/10/2026, photos en local.
+const POSTS = [
+  ['DeFIs5Eswkh', '17.10 · Les Enfants de la Roubine'], ['Dee6-MJkaE6', '31.10 · Halloween Disco Inferno'], ['DeXAHZpILKI', '10.11 · Disconnect'],
+  ['DdqTOwNjHkz', '03.10 · Deron · Opening'], ['DeRbb-YjN99', 'L\'Opening en images'], ['DeM2piQDFyV', 'Un samedi soir en Camargue'],
+  ['DeHpvXTDJ4j', 'La 61e est lancée'], ['DeDuvyes3wb', 'Deron ouvre la saison', 'reel'], ['DeC8os6MwAb', 'Première de la 61e'],
+];
+const DEMO_POSTS = POSTS.map(([code, cap, type], i) => ({url: `${i + 1}.jpg`, link: `https://www.instagram.com/${type || 'p'}/${code}/`, caption: cap, video: !!type}));
+const DEMO_STORIES = [['10', 'Ce soir'], ['site-DSC04863', 'La salle'], ['13', 'Le public'], ['2', 'Halloween'], ['site-DSC05590', 'Ambiance']].map(([f, t]) => ({url: `${f}.jpg`, label: t}));
+let igReal = false, igSeen = 0, stList = [];
+const ago = t => { const m = (Date.now() - new Date(t)) / 6e4 | 0; return m < 60 ? `il y a ${Math.max(1, m)} min` : m < 1440 ? `il y a ${m / 60 | 0} h` : `il y a ${m / 1440 | 0} j`; };
+async function getJSON(f) { try { const r = await fetch(f + '?' + Date.now(), {cache: 'no-store'}); return r.ok ? await r.json() : null; } catch { return null; } }
+async function loadInsta() {
+  const [p, s] = await Promise.all([getJSON('posts.json'), getJSON('stories.json')]);
+  igReal = !!p;
+  const posts = p ? p.map(o => ({url: o.url, link: o.link, caption: o.caption, video: o.type === 'VIDEO', time: o.time})) : DEMO_POSTS;
+  stList = s ? s.map(o => ({url: o.url, video: o.type === 'VIDEO', label: ago(o.time)})) : DEMO_STORIES;
+  const fresh = igSeen && posts.length ? posts.findIndex(o => o.url === igSeen) : 0; // posts arrivés depuis le dernier passage
+  $('igPosts').innerHTML = posts.slice(0, 9).map((o, i) => `<a class="rv in" href="${esc(o.link)}" target="_blank" rel="noopener"><img loading="lazy" src="${esc(o.url)}" alt="${esc(o.caption || '')}">${o.video ? '<span class="vid">▶</span>' : ''}${i < fresh ? '<b class="new">NOUVEAU</b>' : ''}<span>${esc(o.caption || '')}${o.time ? ' · ' + ago(o.time) : ''}</span></a>`).join('');
+  igSeen = posts[0]?.url;
+  $('igStories').innerHTML = stList.length ? stList.map((o, i) => `<button data-i="${i}"><div class="ring"><img src="${esc(o.video ? 'logo.svg' : o.url)}" alt=""></div>${esc(o.label)}</button>`).join('') : '<p class="mut">Pas de story en ce moment.</p>';
+  $('igState').className = 'live rv in' + (igReal ? '' : ' demo');
+  $('igState').querySelector('span').textContent = igReal ? 'Synchronisé avec Instagram · ' + new Date().toLocaleTimeString('fr-FR', {hour: '2-digit', minute: '2-digit'}) : 'Démo : derniers posts relevés le 15/10';
+}
+let svT;
+function openStory(i) {
+  const o = stList[i]; if (!o) return $('sv').classList.remove('on');
+  $('svM').innerHTML = o.video ? `<video src="${esc(o.url)}" autoplay playsinline muted></video>` : `<img src="${esc(o.url)}" alt="">`;
+  $('svT').textContent = o.label; $('sv').classList.remove('on'); void $('sv').offsetWidth; $('sv').classList.add('on');
+  clearTimeout(svT); svT = setTimeout(() => openStory(i + 1), 5000);
+}
+$('igStories').addEventListener('click', e => { const b = e.target.closest('button'); if (b) openStory(+b.dataset.i); });
+$('sv').addEventListener('click', () => { clearTimeout(svT); $('sv').classList.remove('on'); });
+loadInsta(); setInterval(loadInsta, 60e3);
+
+// FAQ
+$('faq').innerHTML = FAQ.map(([q, r]) => `<details class="rv"><summary>${esc(q)}</summary><p>${esc(r)}</p></details>`).join('');
+
+// Formulaires (démo : rien n'est envoyé)
+document.querySelectorAll('form').forEach(f => f.addEventListener('submit', e => { e.preventDefault(); f.querySelector('.ok').classList.add('on'); f.querySelector('button').textContent = '✓ Envoyé'; }));
+
+// QR vers l'app
+try { const q = qrcode(0, 'M'); q.addData('https://azizbena-stack.github.io/md-jhu8lsga1qhxvxiq/'); q.make(); $('qr').innerHTML = q.createSvgTag({cellSize: 4, margin: 0, scalable: true}); } catch (e) {}
+
+// Guirlande du patio + éclats de la boule
+const g = $('garland'), N = 22; let path = 'M0,8';
+for (let i = 0; i < N; i++) {
+  const x = (i + .5) / N * 100, y = i % 2 ? 40 : 26;
+  path += ` Q${x - 50 / N},${y + 10} ${x},${y}`;
+  const b = document.createElement('i'); b.style.cssText = `left:calc(${x}% - 6px);top:${y - 2}px;animation-delay:${(i * .37) % 2.4}s`; g.appendChild(b);
+}
+g.insertAdjacentHTML('afterbegin', `<svg viewBox="0 0 100 70" preserveAspectRatio="none"><path d="${path}" fill="none" stroke="#5a3a30" stroke-width="1.2" vector-effect="non-scaling-stroke"/></svg>`);
+$('spots').innerHTML = Array.from({length: 14}, (_, i) => `<i style="--r:${i * 26}deg;animation-delay:${(i * .23) % 3}s"></i>`).join('');
+
+// Apparitions, compteurs, barre de progression, boutons mobiles
+const count = el => { const n = +el.dataset.n, s = el.dataset.s || '', d = n % 1 ? 1 : 0, t0 = performance.now();
+  const step = t => { const k = Math.min(1, (t - t0) / 1400); el.textContent = (n * (1 - (1 - k) ** 3)).toLocaleString('fr-FR', {minimumFractionDigits: d, maximumFractionDigits: d}) + s; if (k < 1) requestAnimationFrame(step); };
+  requestAnimationFrame(step); };
+if ('IntersectionObserver' in window) {
+  const io = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return;
+    e.target.classList.add('in'); e.target.querySelectorAll('[data-n]').forEach(count); io.unobserve(e.target); }), {threshold: .12});
+  document.querySelectorAll('.rv').forEach(el => io.observe(el));
+} else document.querySelectorAll('.rv').forEach(el => el.classList.add('in'));
+const onScroll = () => { const h = document.documentElement, y = h.scrollTop;
+  $('bar').style.width = y / (h.scrollHeight - innerHeight) * 100 + '%';
+  $('mob').classList.toggle('on', y > innerHeight * .7 && y < h.scrollHeight - innerHeight * 1.3); };
+addEventListener('scroll', onScroll, {passive: true}); onScroll();
+
+if (location.search.includes('test')) {
+  console.assert($('events').children.length === A_VENIR.length, 'soirées');
+  console.assert($('shop').children.length === SHOP.length, 'boutique');
+  console.assert($('gal').children.length === SALLE.length, 'galerie');
+  console.assert(!NEXT || $('cd').children.length === 4, 'compte à rebours');
+  setTimeout(() => console.assert($('igPosts').children.length === 9 && $('igStories').children.length > 0, 'instagram'), 1500);
+  console.log('selftest ok');
+}
+</script>
+</body>
+</html>
